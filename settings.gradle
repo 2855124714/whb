@@ -1,0 +1,5 @@
+include ':architecture'
+includeBuild("VersionPlugin")
+include ':strict_databinding'
+include ':app'
+rootProject.name = "whb"

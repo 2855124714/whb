@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="title"
+            type="String" />
+        <variable
+            name="subtitle"
+            type="String" />
+        <variable
+            name="navIcon"
+            type="android.graphics.drawable.Drawable" />
+        <variable
+            name="style"
+            type="Integer" />
+
+        <variable
+            name="background"
+            type="Integer" />
+    </data>
+
+    <androidx.appcompat.widget.Toolbar
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background='@{background!=0?background:@android:color/white}'
+        app:title='@{title}'
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        app:navigationIcon='@{navIcon}'
+        app:subtitle='@{subtitle}'
+        >
+
+    </androidx.appcompat.widget.Toolbar>
+</layout>

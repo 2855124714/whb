@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">万货邦</string>
+    <string name="title_home">首页</string>
+    <string name="title_video">视频</string>
+    <string name="title_chat">聊天</string>
+    <string name="title_shopping_cart">购物车</string>
+    <string name="title_mine">我的</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="input_phone_num">请输入手机号</string>
+    <string name="input_psw">请输入密码</string>
+    <string name="other_login">其他登录方式</string>
+    <string name="input_image_code">请输入图形验证码</string>
+    <string name="input_smscode">请输入短信验证码</string>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="friendName"
+            type="String" />
+
+        <variable
+            name="clickProxy"
+            type="com.fjsy.architecture.ui.xpopup.MobileContactsRecommendPopupView.ClickProxyImp" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/dp_28"
+        android:background="@drawable/bg_white_10"
+        android:clipChildren="true"
+        >
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/contentText"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="@string/address_book_friend_push"
+            android:paddingHorizontal="@dimen/dp_20"
+            android:textColor="@color/c_1A1A1A"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp_18"
+            />
+
+        <TextView
+            android:id="@+id/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/titleText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/horizontalDivider"
+            android:layout_marginTop="@dimen/dp_20"
+            android:textSize="@dimen/sp_16"
+            tools:text="@string/your_friends_are_also_on_the_clan"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/dp_16"
+            android:text="@{@string/your_friends_are_also_on_the_clan(friendName)}"
+            />
+
+        <View
+            android:id="@+id/horizontalDivider"
+            style="@style/ViewDividerHorizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contentText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/dp_20"
+            />
+
+        <TextView
+            android:id="@+id/cancelBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontalDivider"
+            app:layout_constraintEnd_toStartOf="@id/dividerView"
+
+            android:onClick="@{()->clickProxy.cancel()}"
+            android:padding="@dimen/dp_14"
+            android:textSize="@dimen/sp_16"
+            android:text="@string/cancel"
+            android:textColor="@color/c_999999"
+            android:gravity="center"
+            />
+
+        <View
+            android:id="@+id/dividerView"
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/cancelBtn"
+            app:layout_constraintBottom_toBottomOf="@id/cancelBtn"
+            app:layout_constraintStart_toEndOf="@id/cancelBtn"
+            app:layout_constraintEnd_toStartOf="@id/viewBtn"
+            />
+
+        <TextView
+            android:id="@+id/viewBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/dividerView"
+            app:layout_constraintTop_toTopOf="@id/cancelBtn"
+            app:layout_constraintBottom_toBottomOf="@id/cancelBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:onClick="@{()->clickProxy.viewNow()}"
+            android:padding="@dimen/dp_14"
+            android:textColor="@color/main"
+            android:textSize="@dimen/sp_16"
+            android:text="@string/view_now"
+            android:gravity="center"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

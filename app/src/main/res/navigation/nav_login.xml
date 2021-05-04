@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_login.xml"
+    app:startDestination="@id/passwordLoginFragment">
+    <fragment
+        android:id="@+id/passwordLoginFragment"
+        android:name="com.fjsy.whb.login.PasswordLoginFragment"
+        android:label="@string/password_login"
+        tools:layout="@layout/fragment_psw_login">
+        <action
+            android:id="@+id/smscode_login"
+            app:destination="@id/smscodeLoginFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/smscodeLoginFragment"
+        android:name="com.fjsy.whb.login.SmsLoginFragment"
+        android:label="@string/mobile_number_login"
+        tools:layout="@layout/fragment_psw_login">
+        <action
+            android:id="@+id/password_login"
+            app:destination="@id/passwordLoginFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
+
+    </fragment>
+</navigation>

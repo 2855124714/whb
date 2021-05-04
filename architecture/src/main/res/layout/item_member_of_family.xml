@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/headView"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            imageUrl='@{""}'
+            radius="@{5}"
+            />
+
+        <TextView
+            android:id="@+id/tv_generation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@id/headView"
+            app:layout_constraintBottom_toTopOf="@id/nameText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/headView"
+            android:layout_marginStart="@dimen/dp_14"
+            tools:text="辈分"
+            />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/headView"
+            android:layout_marginStart="@dimen/dp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_generation"
+            app:layout_constraintBottom_toBottomOf="@id/headView"
+            tools:text="谱林"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

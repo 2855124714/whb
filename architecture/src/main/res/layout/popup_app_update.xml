@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickProxy"
+            type="com.fjsy.architecture.ui.xpopup.AppUpdatePopupView.ClickProxyImp" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_18"
+        android:background="@drawable/bg_white_15_stroke_gray"
+        android:clipChildren="true"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/logoView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/titleText"
+            android:layout_marginTop="@dimen/dp_25"
+            android:src="@mipmap/ic_logo"
+            />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/contentText"
+            android:layout_marginHorizontal="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text='@{@string/update_tips("")}'
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/c_101010"
+            android:textStyle="bold"
+            android:gravity="center"
+            tools:text="天奖谱林更新提示"
+            />
+
+        <TextView
+            android:id="@+id/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleText"
+            app:layout_constraintBottom_toTopOf="@id/dividerView"
+            android:paddingHorizontal="@dimen/dp_14"
+            android:gravity="center"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/c_1A1A1A"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="@string/find_new_version_tip"
+            />
+
+        <View
+            android:id="@+id/dividerView"
+            style="@style/ViewDividerHorizontal"
+            android:layout_marginTop="@dimen/dp_14"
+            app:layout_constraintTop_toBottomOf="@id/contentText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/cancelBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dividerView"
+            app:layout_constraintEnd_toStartOf="@id/dividerView1"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            android:textColor="@color/c_999999"
+            android:gravity="center"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            android:padding="@dimen/dp_14"
+            android:text="@string/cancel"
+            android:onClick="@{(v)->clickProxy.cancel()}"
+            />
+
+        <View
+            android:id="@+id/dividerView1"
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/cancelBtn"
+            app:layout_constraintStart_toEndOf="@id/cancelBtn"
+            app:layout_constraintBottom_toBottomOf="@id/cancelBtn"
+            app:layout_constraintEnd_toStartOf="@id/submitBtn"
+            android:background="@color/c_E5E5E5"
+            />
+
+        <TextView
+            android:id="@+id/submitBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_14"
+            android:text="@string/determine"
+            app:layout_constraintStart_toEndOf="@id/dividerView1"
+            app:layout_constraintTop_toTopOf="@id/cancelBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            android:gravity="center"
+            android:textColor="@color/main"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            android:onClick="@{(v)->clickProxy.update()}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

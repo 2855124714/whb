@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:id="@+id/linear_all"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:id="@+id/rv_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/drawable_gray_8">
+
+        <ImageView
+            android:id="@+id/iv_number_input_num_1"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_centerInParent="true"
+            android:src="@drawable/bg_circle_black_radius_8"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_weight="1"
+        android:background="@drawable/drawable_gray_8">
+
+        <ImageView
+            android:id="@+id/iv_number_input_num_2"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_centerInParent="true"
+            android:src="@drawable/bg_circle_black_radius_8"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_weight="1"
+        android:background="@drawable/drawable_gray_8">
+
+        <ImageView
+            android:id="@+id/iv_number_input_num_3"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_centerInParent="true"
+            android:src="@drawable/bg_circle_black_radius_8"
+
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv_4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_weight="1"
+        android:background="@drawable/drawable_gray_8">
+
+        <ImageView
+            android:id="@+id/iv_number_input_num_4"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_centerInParent="true"
+            android:src="@drawable/bg_circle_black_radius_8"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv_5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:background="@drawable/drawable_gray_8">
+
+
+        <ImageView
+            android:id="@+id/iv_number_input_num_5"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_centerInParent="true"
+            android:src="@drawable/bg_circle_black_radius_8"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv_6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:background="@drawable/drawable_gray_8">
+
+
+        <ImageView
+            android:id="@+id/iv_number_input_num_6"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_centerInParent="true"
+            android:src="@drawable/bg_circle_black_radius_8"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

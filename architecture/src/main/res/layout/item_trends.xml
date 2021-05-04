@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.text.TextUtils" />
+        <import type="com.fjsy.architecture.R" />
+        <variable
+            name="item"
+            type="com.fjsy.architecture.global.data.bean.MomentLoadBean.DataBean" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/c_FFFFFF"
+        app:cardCornerRadius="@dimen/dp_5"
+        android:clipChildren="true"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="true"
+            android:paddingBottom="@dimen/dp_10"
+            >
+
+            <ImageView
+                android:id="@+id/tv_cover"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="H,3:4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_title"
+                placeholder="@{R.mipmap.ic_placeholder}"
+                imageUrl="@{!TextUtils.isEmpty(item.thumbnail)?item.thumbnail:item.photos.get(0)}"
+                />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                app:layout_constraintTop_toBottomOf="@id/tv_cover"
+                app:layout_constraintBottom_toTopOf="@id/ll_info"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textSize="@dimen/sp_13"
+                android:textColor="@color/c_111111"
+                android:textStyle="bold"
+                tools:text="动态"
+                android:text="@{!TextUtils.isEmpty(item.title)?item.title:item.content}"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:gravity="center_vertical"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/dp_16"
+                    android:layout_height="@dimen/dp_16"
+                    imageUrl='@{item.user.avatar_url}'
+                    circle="@{true}"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_4"
+                    tools:text="谱林"
+                    android:text="@{item.user.nickname}"
+                    android:textSize="@dimen/sp_11"
+                    android:textColor="@color/c_575757"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atv_zan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.zan_num}"
+                    android:textSize="@dimen/sp_11"
+                    android:textColor="@color/c_111111"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="@dimen/dp_6"
+                    drawableLeft='@{item.is_zan.equals("1")?R.mipmap.ic_trends_like_red:R.mipmap.ic_trends_like_black}'
+                    />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

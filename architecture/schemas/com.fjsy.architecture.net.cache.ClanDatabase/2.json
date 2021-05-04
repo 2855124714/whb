@@ -1,0 +1,241 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "104a3be01a3ab18f8d610dae5981584b",
+    "entities": [
+      {
+        "tableName": "cache",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`key` TEXT NOT NULL, `data` BLOB, PRIMARY KEY(`key`))",
+        "fields": [
+          {
+            "fieldPath": "key",
+            "columnName": "key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "BLOB",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "key"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "PaperDetailBean",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`resultData` TEXT, `count` INTEGER NOT NULL, `id` TEXT NOT NULL, `benison` TEXT, `amount` TEXT, `nums` INTEGER NOT NULL, `uid` TEXT, `viewUid` TEXT NOT NULL, `object_id` INTEGER NOT NULL, `is_show` INTEGER NOT NULL, `pay_time` INTEGER NOT NULL, `balance` TEXT, `rand_price` TEXT, `create_time` TEXT, `update_time` TEXT, `delete_time` TEXT, `receive_money` TEXT, `status` INTEGER NOT NULL, `statusInfo_statusCode` INTEGER, `statusInfo_statusMessage` TEXT, `cover_id_value` INTEGER, `cover_id_text` TEXT, `typeid_value` INTEGER, `typeid_text` TEXT, `cateid_value` INTEGER, `cateid_text` TEXT, `state_value` INTEGER, `state_text` TEXT, `user_uid` TEXT, `user_nickname` TEXT, `user_avatar_url` TEXT, PRIMARY KEY(`id`, `viewUid`))",
+        "fields": [
+          {
+            "fieldPath": "resultData",
+            "columnName": "resultData",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "count",
+            "columnName": "count",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "benison",
+            "columnName": "benison",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "nums",
+            "columnName": "nums",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "viewUid",
+            "columnName": "viewUid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "object_id",
+            "columnName": "object_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "is_show",
+            "columnName": "is_show",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pay_time",
+            "columnName": "pay_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "balance",
+            "columnName": "balance",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "rand_price",
+            "columnName": "rand_price",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "create_time",
+            "columnName": "create_time",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "update_time",
+            "columnName": "update_time",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "delete_time",
+            "columnName": "delete_time",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "receive_money",
+            "columnName": "receive_money",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "statusInfo.statusCode",
+            "columnName": "statusInfo_statusCode",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "statusInfo.statusMessage",
+            "columnName": "statusInfo_statusMessage",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cover_id.value",
+            "columnName": "cover_id_value",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cover_id.text",
+            "columnName": "cover_id_text",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "typeid.value",
+            "columnName": "typeid_value",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "typeid.text",
+            "columnName": "typeid_text",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cateid.value",
+            "columnName": "cateid_value",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cateid.text",
+            "columnName": "cateid_text",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "state.value",
+            "columnName": "state_value",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "state.text",
+            "columnName": "state_text",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "user.uid",
+            "columnName": "user_uid",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "user.nickname",
+            "columnName": "user_nickname",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "user.avatar_url",
+            "columnName": "user_avatar_url",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id",
+            "viewUid"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '104a3be01a3ab18f8d610dae5981584b')"
+    ]
+  }
+}

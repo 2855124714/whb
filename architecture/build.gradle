@@ -1,0 +1,178 @@
+/*
+ * Copyright 2018-present KunMinX
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import com.fjsy.plugin.*
+
+android {
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments=["room.schemaLocation":"$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    testApi Depend.junit
+    androidTestApi Depend.androidTestJunit
+    androidTestApi Depend.espressoCore
+
+    api AndroidX.constraintlayout
+    api Kt.stdlib
+
+    api AndroidX.appcompat
+    api AndroidX.material
+
+    api Lifecycle.runtime
+    api Lifecycle.common
+    api Lifecycle.viewmodel
+    api Lifecycle.livedata
+
+    api AndroidX.navigation_runtime
+    api AndroidX.navigation_fragment
+    api AndroidX.navigation_ui
+    api Room.runtime
+    annotationProcessor Room.compiler
+    api Room.rxjava2
+    api Room.testing
+    api Rx.rxjava2
+    api Rx.rx_android
+
+    api Retrofit.runtime
+    api Retrofit.gson
+    api Retrofit.mock
+    api Retrofit.adapter
+
+    api Arch.lifecycle_extensions
+    implementation Okhttp.okhttp
+    implementation Okhttp.logging
+    //解决了安装APK后首次执行MultiDex耗时过长问题
+    implementation Depend.boost_multidex
+
+    api ARouter.api
+//    annotationProcessor ARouter.compiler
+
+    implementation Depend.eventbus
+    implementation Depend.startup
+    api Glide.runtime
+    annotationProcessor Glide.compiler
+    api Glide.transformations
+    api Depend.swiperecyclerview
+    // json解析
+    api Depend.gson
+    api Depend.joda_time
+    api BGA.badgeview_api
+    annotationProcessor BGA.badgeview_compiler
+    api Depend.xpopup
+    api BGA.qrcode
+    api Depend.x5webview
+    api Depend.youth_banner
+    api GSY.player
+    api Depend.picture_selector
+    api Depend.permission
+    api Depend.timelineview
+
+    api Refresh.kernel
+    api Refresh.header_classics
+    api Refresh.radar
+    api Refresh.falsify
+    api Refresh.material
+    api Refresh.two_level
+    api Refresh.ball
+    api Refresh.footer_classics
+    api Depend.util
+    api Depend.immersionbar
+    api Depend.brv_adapter
+    api Depend.autosize
+    api Depend.okhttputils
+    api Depend.ExpandableTextView
+//    api Depend.video_trimmer
+//    api Depend.video_player_manager
+//    api Depend.list_visibility_utils
+    api Depend.RxFFmpeg
+
+    api Tencent.TencentLocationSdk
+    api Tencent.tencent_map_vector
+
+    api AndroidX.exifinterface
+    api AndroidX.localbroadcastmanager
+    api AndroidX.annotation_experimental
+    api Camera.lifecycle
+    api Camera.view
+    api Camera.core
+    api Camera.camera2
+
+    api Umeng.common
+    api Umeng.asms
+    api Umeng.share_core
+    api Umeng.share_board
+    api Umeng.share_wx
+    api Tencent.wechat
+    api Tencent.bugly_crashreport
+//    api Tencent.bugly_nativecrashreport
+
+//    api Tuikit.tuikit
+//    api Tuikit.tuikit_live
+//    api project(path: ':tuikit')
+    api 'com.kunminx.archi:unpeek-livedata:4.5.0-beta1'
+    api project(path: ':strict_databinding')
+//    api project(path: ':index_lib')
+//    api project(':mars-core-release')
+//    api project(':htmleditorlibrary')
+//    api project(':base_res')
+//    api project(':glcamera')
+
+//    api FileSelector.file
+}
+

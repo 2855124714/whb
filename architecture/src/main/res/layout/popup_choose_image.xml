@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_top_10"
+        android:gravity="bottom"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tv_take_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/c_101010"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:background="@null"
+            android:text="@string/take_picture"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:background="@color/c_E5E5E5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tv_select_from_phone_album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@null"
+            android:textColor="@color/c_101010"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:text="@string/select_from_phone_album"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_10"
+            android:background="@color/c_F2F2F2"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tv_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@null"
+            android:textColor="@color/c_101010"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:text="@string/cancel"
+            />
+
+
+    </LinearLayout>
+</layout>

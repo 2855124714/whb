@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.fjsy.architecture.R" />
+        <import type="android.view.View" />
+
+        <import type="com.fjsy.architecture.ui.widget.ToolbarAction" />
+
+        <variable
+            name="pageTitle"
+            type="String" />
+
+        <variable
+            name="titleColorId"
+            type="int" />
+
+        <variable
+            name="leftAction"
+            type="ToolbarAction" />
+
+        <variable
+            name="rightAction"
+            type="ToolbarAction" />
+
+        <variable
+            name="backgroundResId"
+            type="int" />
+
+        <variable
+            name="showDivider"
+            type="Boolean" />
+
+        <variable
+            name="needStatusBarHeight"
+            type="Boolean" />
+
+        <variable
+            name="statusBarBackgroundResId"
+            type="int" />
+
+        <variable
+            name="mRightBackgroundResId"
+            type="int" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{backgroundResId != 0 ? backgroundResId : @android:color/white}"
+        android:orientation="vertical">
+
+        <com.fjsy.architecture.ui.widget.StatusBarHeightView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@{statusBarBackgroundResId==0?@android:color/white:statusBarBackgroundResId}"
+            android:visibility="@{needStatusBarHeight?View.VISIBLE:View.GONE}"
+            />
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            tools:background="@android:color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvToolbarLeft"
+                    android:layout_width="?android:attr/actionBarSize"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:onClick="@{leftAction.listener}"
+                    android:text="@{leftAction.text}"
+                    android:textColor="@{leftAction.textColor != 0 ? leftAction.textColor : @color/c_333333}"
+                    android:textSize="16sp"
+                    android:visibility="@{leftAction.text == null ? View.GONE : View.VISIBLE}"
+                    tools:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/ivToolbarLeft"
+                    android:layout_width="?android:attr/actionBarSize"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+
+                    android:clickable="true"
+                    android:onClick="@{leftAction.listener}"
+                    android:scaleType="centerInside"
+                    android:src="@{leftAction.drawable}"
+                    android:visibility="@{leftAction.drawable == null ? View.GONE : View.VISIBLE}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="?android:attr/actionBarSize"
+                    android:layout_marginRight="?android:attr/actionBarSize"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@{pageTitle}"
+                    android:textColor="@{titleColorId != 0 ? titleColorId : @color/c_333333}"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/tvToolbarRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    app:backgroundResourceId="@{mRightBackgroundResId==0?0:mRightBackgroundResId}"
+                    android:clickable="true"
+                    android:gravity="center"
+                    app:applyGlobalDebouncing="@{rightAction.listener}"
+                    applyGlobalDebouncingDuration="@{500}"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingEnd="@dimen/dp_12"
+                    android:paddingTop="@dimen/dp_6"
+                    android:paddingBottom="@dimen/dp_6"
+                    android:text="@{rightAction.text}"
+                    android:textColor="@{rightAction.textColor != 0 ? rightAction.textColor : @color/c_333333}"
+                    android:textSize="16sp"
+                    android:visibility="@{rightAction.text == null ? View.GONE : View.VISIBLE}"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivToolbarRight"
+                    android:layout_width="?android:attr/actionBarSize"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+
+                    android:clickable="true"
+                    app:applyGlobalDebouncing="@{rightAction.listener}"
+                    applyGlobalDebouncingDuration="@{500}"
+                    android:scaleType="centerInside"
+                    android:src="@{rightAction.drawable}"
+                    android:visibility="@{rightAction.drawable == null ? View.GONE : View.VISIBLE}" />
+
+                <View
+                    style="@style/ViewDividerHorizontal"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="1px"
+                    android:visibility="@{showDivider ? View.VISIBLE : View.GONE}" />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.fjsy.architecture.R" />
+        <import type="com.blankj.utilcode.util.SizeUtils" />
+        <import type="android.text.TextUtils" />
+        <import type="android.graphics.Color" />
+
+        <variable
+            name="item"
+            type="com.fjsy.architecture.global.data.bean.DetailLoadCommentBean.DataBean" />
+
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="itemDecoration"
+            type="androidx.recyclerview.widget.RecyclerView.ItemDecoration" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+
+        >
+
+        <ImageView
+            android:id="@+id/headView"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nameText"
+            circle="@{true}"
+            imageUrl='@{item.user.avatar_url}'
+            />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintTop_toTopOf="@id/headView"
+            app:layout_constraintStart_toEndOf="@id/headView"
+            app:layout_constraintEnd_toStartOf="@id/likeView"
+            android:textColor="@color/c_1A1A1A"
+            android:textSize="@dimen/sp_13"
+            android:textStyle="bold"
+            tools:text="谱林"
+            android:visibility="visible"
+            android:text="@{!TextUtils.isEmpty(item.user.truename)?item.user.truename:item.user.nickname}"
+            />
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/nameText"
+            app:layout_constraintTop_toBottomOf="@id/nameText"
+            app:layout_constraintEnd_toEndOf="@id/nameText"
+            android:layout_marginTop="@dimen/dp_6"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/c_999999"
+            tools:text="刚刚"
+            android:text="@{item.create_time}"
+            />
+
+        <TextView
+            android:id="@+id/likeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            app:layout_constraintStart_toEndOf="@id/nameText"
+            app:layout_constraintTop_toTopOf="@id/nameText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:itemDrawableRight='@{item.isDoLike()?R.mipmap.ic_article_like_sekect:R.mipmap.ic_article_like}'
+
+            android:drawablePadding="@dimen/dp_6"
+            android:gravity="bottom"
+            android:text='@{item.zan_num}'
+            tools:text="0"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/c_232323"
+            />
+
+        <TextView
+            android:id="@+id/contentText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintStart_toStartOf="@id/nameText"
+            app:layout_constraintTop_toBottomOf="@id/timeText"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="评论"
+            android:textColor="@color/c_111111"
+            android:textSize="@dimen/sp_14"
+            android:text="@{item.content}"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentRv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintStart_toStartOf="@id/nameText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contentText"
+            tools:listitem="@layout/item_detail_comment_reply"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            adapter="@{adapter}"
+            addItemDecoration="@{itemDecoration}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

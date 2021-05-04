@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="userId"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="start"
+        android:padding="3dp"
+        tools:background="@color/c_000000"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="17dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_watermark"
+            />
+
+        <TextView
+            android:layout_width="102dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@{@string/clan_id(userId)}"
+            android:textColor="@color/c_FFFFFF"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            tools:text="天奖号:10007100"
+            />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="AgreeEvent"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="isAgree"
+            type="androidx.databinding.ObservableBoolean" />
+        <variable
+            name="wechatLogin"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="@dimen/dp_45"
+        android:paddingLeft="@dimen/dp_45"
+        android:paddingRight="@dimen/dp_45"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_1"
+                android:layout_weight="1"
+                android:background="@color/E6E6E6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:text="@string/other_login"
+                android:textColor="@color/c_CCCCCC"
+                android:textSize="@dimen/sp_12" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_1"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_weight="1"
+                android:background="@color/E6E6E6" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:src="@mipmap/ic_wechat_login"
+            android:layout_marginTop="@dimen/dp_20"
+            android:onClick="@{wechatLogin}"/>
+        <RadioButton
+            android:id="@+id/rb_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:button="@null"
+            android:onClick="@{AgreeEvent}"
+            android:layout_marginTop="@dimen/dp_166"
+            android:drawableStart="@drawable/rb_select"
+            android:drawablePadding="@dimen/dp_3"
+            android:textSize="@dimen/sp_11"
+            android:checked="@{isAgree}"
+            android:textColor="@color/c_777777"
+            android:text="@string/by_logging_in_or_registering_you_agree_to_the_agreement"
+            />
+    </LinearLayout>
+</layout>

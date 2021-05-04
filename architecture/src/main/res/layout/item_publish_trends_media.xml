@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="img"
+            type="String" />
+
+        <variable
+            name="isCanAdd"
+            type="Boolean" />
+
+        <variable
+            name="isVideo"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgAdd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@mipmap/ic_trends_add"
+            android:scaleType="centerInside"
+
+            android:visibility="@{isCanAdd?View.VISIBLE:View.GONE}"
+            tools:visibility="gone"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{img}"
+            android:visibility="@{isCanAdd ? View.GONE:View.VISIBLE}"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="@{isVideo &amp;&amp; !isCanAdd ? View.VISIBLE:View.GONE}"
+            android:src="@mipmap/ic_video_play_gray"
+            />
+
+        <ImageView
+            android:id="@+id/delView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/image_close"
+
+            android:visibility="@{isCanAdd?View.GONE:View.VISIBLE}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

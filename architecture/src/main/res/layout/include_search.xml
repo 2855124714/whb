@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.fjsy.architecture.R" />
+        <import type="android.text.TextUtils"/>
+        <variable
+            name="clickEvent"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="searchHint"
+            type="String" />
+
+        <variable
+            name="backgroundResId"
+            type="int" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_chat_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_20"
+        app:backgroundResourceId="@{backgroundResId==0?R.drawable.bg_f5f5f5_2:backgroundResId}"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/dp_9"
+        android:onClick="@{clickEvent}"
+        >
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/c_999999"
+            android:textSize="@dimen/sp_15"
+            android:drawablePadding="@dimen/dp_6"
+            android:paddingTop="@dimen/dp_9"
+            android:background="@null"
+            android:paddingBottom="@dimen/dp_9"
+            android:text="@{TextUtils.isEmpty(searchHint)?@string/search:searchHint}"
+            app:drawableStartCompat="@mipmap/ic_search_grey" />
+    </LinearLayout>
+</layout>

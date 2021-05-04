@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.fjsy.architecture.global.data.bean.MomentSecretBean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:paddingVertical="@dimen/dp_14"
+        >
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/checkBox"
+            app:layout_constraintBottom_toTopOf="@id/contentText"
+            android:textSize="@dimen/sp_15"
+            android:textColor="@color/c_101010"
+            tools:text="谱林"
+            android:text="@{item.secretName}"
+            />
+
+        <TextView
+            android:id="@+id/contentText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/checkBox"
+            android:layout_marginTop="@dimen/dp_8"
+            android:textSize="@dimen/sp_13"
+            android:textColor="@color/c_7F7F7F"
+            tools:text="谱林"
+            android:text="@{item.secretContent}"
+            />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:background="@drawable/rb_set"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/titleText"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:checked="@{item.select}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

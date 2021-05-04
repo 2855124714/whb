@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout android:layout_gravity="bottom" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="isSelf"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="isCollect"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="clickProxy"
+            type="com.fjsy.architecture.ui.xpopup.DetailOperationPopupView.ClickProxyImp" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_top_10"
+        android:gravity="bottom"
+        >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/setToPrivacyBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/c_101010"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:background="@null"
+            android:visibility="@{isSelf?View.VISIBLE:View.GONE}"
+            android:onClick="@{()->clickProxy.setAsPrivacy()}"
+            android:text="@string/set_as_privacy"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:background="@color/c_E5E5E5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:visibility="@{isSelf?View.VISIBLE:View.GONE}"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sendToFriendsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@null"
+            android:onClick="@{()->clickProxy.sendToFriends()}"
+            android:textColor="@color/c_101010"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:text="@string/send_to_friends"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:background="@color/c_E5E5E5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/collect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/c_101010"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:onClick="@{()->clickProxy.collect()}"
+            android:visibility="@{isSelf?View.GONE:View.VISIBLE}"
+            android:background="@null"
+            android:text="@{isCollect?@string/cancel_collection:@string/collect}"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:background="@color/c_E5E5E5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:visibility="@{isSelf?View.GONE:View.VISIBLE}"
+            android:layout_marginEnd="@dimen/dp_10"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@null"
+            android:onClick="@{()->clickProxy.report()}"
+            android:visibility="@{isSelf?View.GONE:View.VISIBLE}"
+            android:textColor="@color/c_F70F0F"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:text="@string/report"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_5"
+            android:background="@color/c_E5E5E5"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:visibility="@{isSelf?View.GONE:View.VISIBLE}"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/delBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@null"
+            android:onClick="@{()->clickProxy.del()}"
+            android:visibility="@{isSelf?View.VISIBLE:View.GONE}"
+            android:textColor="@color/c_F70F0F"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:text="@string/del"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_10"
+            android:background="@color/c_F2F2F2"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tv_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@null"
+            android:textColor="@color/c_101010"
+            android:textSize="@dimen/sp_16"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingBottom="@dimen/dp_18"
+            android:onClick="@{()->clickProxy.cancel()}"
+            android:text="@string/cancel"
+            />
+
+
+    </LinearLayout>
+</layout>

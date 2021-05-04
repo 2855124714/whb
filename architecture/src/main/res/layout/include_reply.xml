@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.fjsy.architecture.R" />
+
+        <variable
+            name="commentEvent"
+            type="View.OnClickListener" />
+
+        <variable
+            name="likeEvent"
+            type="View.OnClickListener" />
+
+        <variable
+            name="collectEvent"
+            type="View.OnClickListener" />
+
+        <variable
+            name="commentNum"
+            type="String" />
+        
+        <variable
+            name="isDoLike"
+            type="Boolean" />
+
+        <variable
+            name="isCollect"
+            type="Boolean" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_10"
+        tools:visibility="visible"
+        android:clipChildren="false"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_11"
+            android:layout_marginBottom="@dimen/dp_11"
+            android:background="@drawable/bg_f2f2f2_14"
+            android:paddingStart="@dimen/dp_14"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_6"
+            android:paddingBottom="@dimen/dp_6"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="@dimen/dp_8"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/c_2B2B2B"
+            android:text="@string/write_a_review"
+            app:applySingleDebouncing="@{commentEvent}"
+            app:drawableStartCompat="@mipmap/ic_article_write_comment" />
+
+        <com.fjsy.architecture.ui.widget.BadgeImageView
+            android:id="@+id/commentView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_15"
+            app:applySingleDebouncing='@{commentEvent}'
+            android:src="@mipmap/ic_article_comment"
+            android:background="@null"
+            app:textBadge="@{commentNum}"
+            app:badge_padding="@dimen/dp_2"
+            app:badge_draggable="false"
+            app:badge_bgColor="@color/c_FB2E2A"
+            app:badge_textSize="@dimen/sp_7"
+            app:badge_gravity="rightTop"
+            app:badge_verticalMargin="0dp"
+            app:badge_horizontalMargin="-4dp"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:scaleType="fitCenter"
+            app:imageResId="@{isCollect?R.mipmap.ic_article_collect_select:R.mipmap.ic_article_collect}"
+            android:layout_marginStart="@dimen/dp_24"
+            app:applySingleDebouncing="@{collectEvent}"
+            android:background="@null"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:scaleType="fitCenter"
+            app:imageResId="@{isDoLike?R.mipmap.ic_article_love_select:R.mipmap.ic_article_love}"
+            android:layout_marginStart="@dimen/dp_24"
+            app:applySingleDebouncing="@{likeEvent}"
+            android:background="@null"
+            />
+
+    </LinearLayout>
+</layout>
