@@ -116,5 +116,6 @@
     <color name="transparent">#00ffffff</color>
     <color name="colorAccent">#D81B60</color>
     <color name="item_split_color">#cccccc</color>
-
+    <color name="tab_dark">#222222</color>
+    <color name="tab_light">#FB6A3E</color>
 </resources>

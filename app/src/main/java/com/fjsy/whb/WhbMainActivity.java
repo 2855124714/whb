@@ -6,10 +6,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager2.widget.ViewPager2;
-
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.ToastUtils;
@@ -33,11 +29,15 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
+
 
 public class WhbMainActivity extends BaseProjectActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     private MainViewModel mViewModel;
     private boolean mBackKeyPressed = false;
-    private static SparseArray<Fragment> fragmentList=new SparseArray<>();
+    private static SparseArray<Fragment> fragmentList = new SparseArray<>();
     private MainFragmentAdapter mAdapter;
     private ActivityMainWhbBinding mBinding;
 
@@ -58,6 +58,7 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
         initNavigationView();
         initViewPager();
     }
+
     private void initNavigationView() {
         mBinding = (ActivityMainWhbBinding) getBinding();
         BottomNavigationView navView = mBinding.navView;
@@ -72,6 +73,7 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
         ids.add(R.id.navigation_mine);
         clearToast(navView, ids);
     }
+
     private void initViewPager() {
         fragmentList.clear();
         fragmentList.put(0, HomeFragment.newInstance());
@@ -139,7 +141,6 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
                     }
                 });
     }
-
 
 
     /**
