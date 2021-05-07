@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="AgreeEvent"
             type="android.view.View.OnClickListener" />
+
         <variable
             name="isAgree"
             type="androidx.databinding.ObservableBoolean" />
+
         <variable
             name="wechatLogin"
             type="android.view.View.OnClickListener" />
@@ -19,10 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:paddingBottom="@dimen/dp_45"
-        android:paddingLeft="@dimen/dp_45"
-        android:paddingRight="@dimen/dp_45"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/dp_45">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,24 +56,24 @@
         <ImageView
             android:layout_width="@dimen/dp_40"
             android:layout_height="@dimen/dp_40"
-            android:src="@mipmap/ic_wechat_login"
             android:layout_marginTop="@dimen/dp_20"
-            android:onClick="@{wechatLogin}"/>
+            android:onClick="@{wechatLogin}"
+            android:src="@mipmap/ic_wechat_login" />
+
         <RadioButton
             android:id="@+id/rb_agree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_81"
             android:background="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:button="@null"
-            android:onClick="@{AgreeEvent}"
-            android:layout_marginTop="@dimen/dp_166"
+            android:checked="@{isAgree}"
             android:drawableStart="@drawable/rb_select"
             android:drawablePadding="@dimen/dp_3"
-            android:textSize="@dimen/sp_11"
-            android:checked="@{isAgree}"
-            android:textColor="@color/c_777777"
+            android:onClick="@{AgreeEvent}"
             android:text="@string/by_logging_in_or_registering_you_agree_to_the_agreement"
-            />
+            android:textColor="@color/c_777777"
+            android:textSize="@dimen/sp_11"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </LinearLayout>
 </layout>
