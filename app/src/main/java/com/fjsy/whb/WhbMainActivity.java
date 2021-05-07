@@ -4,7 +4,8 @@ import android.Manifest;
 import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
@@ -22,9 +23,9 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.kunminx.architecture.ui.page.DataBindingConfig;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -32,6 +33,8 @@ import java.util.TimerTask;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
+import q.rorbin.badgeview.Badge;
+import q.rorbin.badgeview.QBadgeView;
 
 
 public class WhbMainActivity extends BaseProjectActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +43,8 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
     private static SparseArray<Fragment> fragmentList = new SparseArray<>();
     private MainFragmentAdapter mAdapter;
     private ActivityMainWhbBinding mBinding;
+    private BottomNavigationViewEx mNavView;
+    private ImageView mNavChat;
 
     @Override
     protected void initViewModel() {
@@ -61,17 +66,13 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
 
     private void initNavigationView() {
         mBinding = (ActivityMainWhbBinding) getBinding();
-        BottomNavigationView navView = mBinding.navView;
-        navView.setOnNavigationItemSelectedListener(this);
-        navView.setItemIconTintList(null);
-        navView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-        List<Integer> ids = new ArrayList<>();
-        ids.add(R.id.navigation_home);
-        ids.add(R.id.navigation_video);
-        ids.add(R.id.navigation_chat);
-        ids.add(R.id.navigation_shopping_cart);
-        ids.add(R.id.navigation_mine);
-        clearToast(navView, ids);
+        mNavView = mBinding.navView;
+        mNavChat = mBinding.navigationChat;
+        mNavView.setOnNavigationItemSelectedListener(this);
+        mNavView.setItemIconTintList(null);
+        mNavView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+        addBadgeAt(mNavChat, 1, 0);
+        addBadgeAt(mNavView.getBottomNavigationItemView(3), 2, 12);
     }
 
     private void initViewPager() {
@@ -89,20 +90,20 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                BottomNavigationView navView = mBinding.navView;
                 if (position == 0) {
-                    navView.setSelectedItemId(R.id.navigation_home);
+                    mNavView.setSelectedItemId(R.id.navigation_home);
                 } else if (position == 1) {
-                    navView.setSelectedItemId(R.id.navigation_video);
+                    mNavView.setSelectedItemId(R.id.navigation_video);
                 } else if (position == 2) {
-                    navView.setSelectedItemId(R.id.navigation_chat);
+                    mNavView.setSelectedItemId(R.id.i_empty);
                 } else if (position == 3) {
-                    navView.setSelectedItemId(R.id.navigation_shopping_cart);
+                    mNavView.setSelectedItemId(R.id.navigation_shopping_cart);
                 } else if (position == 4) {
-                    navView.setSelectedItemId(R.id.navigation_mine);
+                    mNavView.setSelectedItemId(R.id.navigation_mine);
                 }
             }
         });
+        mNavChat.setOnClickListener(view -> containerFragment.setCurrentItem(2, false));
     }
 
     private void initPermission() {
@@ -143,24 +144,6 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
     }
 
 
-    /**
-     * * 清除长按时的toast
-     *
-     * @param ids  与配置文件中对应的所有id
-     */
-    private void clearToast(BottomNavigationView bottomNavigationView, List<Integer> ids) {
-        ViewGroup bottomNavigationMenuView = (ViewGroup) bottomNavigationView.getChildAt(0);
-        //遍历子View,重写长按点击事件
-        for (int position = 0; position < ids.size(); position++) {
-            bottomNavigationMenuView.getChildAt(position).findViewById(ids.get(position)).setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    return true;
-                }
-            });
-        }
-    }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
@@ -171,7 +154,7 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
         } else if (itemId == R.id.navigation_video) {
             containerFragment.setCurrentItem(1, false);
             return true;
-        } else if (itemId == R.id.navigation_chat) {
+        } else if (itemId == R.id.i_empty) {
             containerFragment.setCurrentItem(2, false);
             return true;
         } else if (itemId == R.id.navigation_shopping_cart) {
@@ -202,4 +185,14 @@ public class WhbMainActivity extends BaseProjectActivity implements BottomNaviga
         }
     }
 
+    private Badge addBadgeAt(View view, int number, int offset) {
+        return new QBadgeView(this)
+                .setBadgeNumber(number)
+                .setGravityOffset(offset, 0, true)
+                .bindTarget(view)
+                .setOnDragStateChangedListener((dragState, badge, targetView) -> {
+                    if (Badge.OnDragStateChangedListener.STATE_SUCCEED == dragState)
+                        Toast.makeText(WhbMainActivity.this, "111", Toast.LENGTH_SHORT).show();
+                });
+    }
 }

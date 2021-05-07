@@ -11,11 +11,8 @@
         android:id="@+id/navigation_video"
         android:icon="@drawable/main_tab_video"
         android:title="@string/title_video" />
-
     <item
-        android:id="@+id/navigation_chat"
-        android:icon="@mipmap/tab_msg"
-        app:showAsAction="ifRoom"
+        android:id="@+id/i_empty"
         android:title="" />
     <item
         android:id="@+id/navigation_shopping_cart"
